@@ -1,3 +1,4 @@
+DEFAULT_USER=`whoami`
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -97,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias vi="nvim"
+alias vi="nvim"
 alias imgqe="~/scripts/imgqe.sh"
 alias spartan="~/scripts/spartan.sh"
 

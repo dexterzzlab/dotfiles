@@ -1,3 +1,5 @@
+let whoami = "user1"
+
 " Plugin settings
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -19,14 +21,20 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Python stuff
-Plug 'vim-python/python-syntax'
+" Plug 'vim-python/python-syntax'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'psf/black'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+" JavaScript stuff
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+
+" Linting
+" Plug 'w0rp/ale'
 
 " Autocomplete
-" Plug 'dense-analysis/ale'
-" Plug 'davidhalter/jedi'
-" Plug 'davidhalter/jedi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Fuzzy search
@@ -52,11 +60,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Theme
 colorscheme iceberg
-" set background=dark
 
 " Syntax stuff
 syntax enable
-syntax on
 
 " NerdTree stuff
 autocmd StdinReadPre * let s:std_in=1
@@ -80,13 +86,23 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " removes trailing whitespace on save
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufNewFile,BufRead *.ptest set syntax=json
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+" use json syntax highlighting for ptest files
+autocmd BufNewFile,BufRead *.ptest set syntax=json
+autocmd BufNewFile,BufRead *.py set syntax=imgqe_python
 
 let g:lightline = {
       \ 'colorscheme': 'iceberg',
       \ }
+
+let g:semshi#error_sign = v:false
 
 
 " use <tab> for trigger completion and navigate to the next complete item
@@ -103,6 +119,42 @@ inoremap <silent><expr> <Tab>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:python_highlight_all = 1
-
 hi Normal ctermfg=252 ctermbg=NONE
+
+autocmd BufWritePre *.py execute ':Black'
+
+" Semshi custom highlighting
+function MyCustomHighlights()
+    hi semshiLocal           ctermfg=209 guifg=#ff875f
+	hi semshiGlobal          ctermfg=214 guifg=#ffaf00
+	hi semshiImported        ctermfg=30 guifg=#008787 cterm=bold gui=bold
+	hi semshiParameter       ctermfg=75  guifg=#5fafff
+	hi semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
+	hi semshiFree            ctermfg=218 guifg=#ffafd7
+	hi semshiBuiltin         ctermfg=171 guifg=#d75fff
+	hi semshiAttribute       ctermfg=32 guifg=#0087d7
+	hi semshiSelf            ctermfg=140 guifg=#a093c7
+	hi semshiUnresolved      ctermfg=203 guifg=#e27878 cterm=underline gui=underline
+	hi semshiSelected        ctermfg=195 ctermbg=30 guifg=#c6c8d1 guibg=#5b7881
+
+endfunction
+
+autocmd FileType python call MyCustomHighlights()
+
+" Persistent undo
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
+
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
