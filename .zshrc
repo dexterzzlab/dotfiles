@@ -109,3 +109,4 @@ zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 export TERM="xterm-256color"
+bindkey -v

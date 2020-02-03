@@ -121,6 +121,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 hi Normal ctermfg=252 ctermbg=NONE
 
+" let g:black_virtualenv = '/Users/dextertan/neovimenv'
 autocmd BufWritePre *.py execute ':Black'
 
 " Semshi custom highlighting
