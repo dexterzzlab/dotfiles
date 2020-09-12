@@ -101,12 +101,13 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias imgqe="~/scripts/imgqe.sh"
 alias spartan="~/scripts/spartan.sh"
+alias compare="~/scripts/compare.sh"
 
 # Enable Ctrl-x-e to edit command line
-autoload -U edit-command-line
+# autoload -U edit-command-line
 # Vi style:
-zle -N edit-command-line
-bindkey '^e' edit-command-line
+# zle -N edit-command-line
+# bindkey '^e' edit-command-line
 
 export TERM="xterm-256color"
-bindkey -v
+# bindkey -v

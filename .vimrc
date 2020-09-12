@@ -6,45 +6,49 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-" Make sure you use single quotes
+	" Make sure you use single quotes
+	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-repeat'
+	Plug 'tpope/vim-fugitive'
 
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
+	" NerdTree stuff
+	Plug 'scrooloose/nerdtree'
+	Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" NerdTree stuff
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+	" Python stuff
+	" Plug 'vim-python/python-syntax'
+	Plug 'jeetsukumaran/vim-pythonsense'
+	Plug 'Vimjas/vim-python-pep8-indent'
+	Plug 'psf/black', { 'branch': 'stable' }
+	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+	Plug 'fisadev/vim-isort'
 
-" Python stuff
-" Plug 'vim-python/python-syntax'
-Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'psf/black'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+	" JavaScript stuff
+	Plug 'yuezk/vim-js'
+	Plug 'maxmellon/vim-jsx-pretty'
 
-" JavaScript stuff
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+	" Linting
+	" Plug 'w0rp/ale'
 
-" Linting
-" Plug 'w0rp/ale'
+	" Autocomplete
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	" Fuzzy search
+	" Plug '/usr/local/opt/fzf'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 
-" Fuzzy search
-" Plug '/usr/local/opt/fzf'
+	" Theme
+	Plug 'cocopon/iceberg.vim'
+	Plug 'itchyny/lightline.vim'
 
-" Theme
-Plug 'cocopon/iceberg.vim'
-Plug 'itchyny/lightline.vim'
-
-call plug#end()" Basic settings
+call plug#end()
 
 " Basic settings
 set number
@@ -100,10 +104,16 @@ autocmd BufNewFile,BufRead *.py set syntax=imgqe_python
 
 let g:lightline = {
       \ 'colorscheme': 'iceberg',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
       \ }
 
 let g:semshi#error_sign = v:false
-
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -122,7 +132,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 hi Normal ctermfg=252 ctermbg=NONE
 
 " let g:black_virtualenv = '/Users/dextertan/neovimenv'
+let g:black_linelength = 120
 autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py execute ':Isort'
 
 " Semshi custom highlighting
 function MyCustomHighlights()
@@ -159,3 +171,5 @@ endif
 
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
+
+:set colorcolumn=120
