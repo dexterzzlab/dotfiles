@@ -1,9 +1,3 @@
--- First clone this
--- git clone --depth 1 https://github.com/wbthomason/packer.nvim\
---  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 

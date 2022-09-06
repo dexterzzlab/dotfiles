@@ -1,3 +1,4 @@
+require('files.comments')
 require('files.onread')
 require('files.onsave')
 require('files.python')

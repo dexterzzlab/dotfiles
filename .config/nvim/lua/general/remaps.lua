@@ -1,24 +1,22 @@
--- nnoremap <Space>d :lua vim.lsp.buf.definition()<CR>
+-- LSP
 vim.api.nvim_set_keymap('n', '<Space>d', ':lua vim.lsp.buf.definition()<CR>', { noremap = true })
-
 vim.api.nvim_set_keymap('n', '<Space>c', ':lua vim.lsp.buf.rename()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Space>r', ':lua vim.lsp.buf.references()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Space>a', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Space>n', ':lua vim.lsp.diagnostic.goto_next()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Space>N', ':lua vim.lsp.diagnostic.goto_prev()<CR>', { noremap = true })
 
--- " Normal mode remaps
--- " open a side terminal mode window
+-- Normal mode remaps
 vim.api.nvim_set_keymap('n', '<Space>;', ':vsplit | terminal<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Space>:', ':split | terminal<CR>', { noremap = true })
--- " open splits
 vim.api.nvim_set_keymap('n', '<Space>v', ':vsplit<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Space>h', ':split<CR>', { noremap = true })
--- " Open current window in tab
 vim.api.nvim_set_keymap('n', '<Space>t', ':tab sp<CR>', { noremap = true })
+
 -- " Files fuzzy search
 vim.api.nvim_set_keymap('n', '<Space>f', ':Files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Space>F', ':Rg<CR>', { noremap = true })
+
 -- " Isort
 vim.api.nvim_set_keymap('n', '<Space>i', ':Isort<CR>', { noremap = true })
 
