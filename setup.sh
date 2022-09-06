@@ -3,6 +3,8 @@
 # setup zsh steps
 
 # install required lsp items
+# python
+# stylua
 
 # Install neovim
 # Map neovim to vi
