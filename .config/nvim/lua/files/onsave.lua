@@ -7,4 +7,3 @@ vim.cmd([[
     endfun
     autocmd BufWritePre * :call StripTrailingWhitespaces()
 ]])
-

@@ -1,3 +1,2 @@
--- disable
--- vim.cmd([[ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o ]])
+-- Disables continuing comments on new lines
 vim.cmd([[ autocmd FileType * setlocal formatoptions-=cro ]])

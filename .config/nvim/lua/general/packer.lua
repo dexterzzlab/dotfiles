@@ -1,44 +1,57 @@
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+vim.cmd([[packadd packer.nvim]])
 
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+return require("packer").startup(function(use)
+	-- Packer can manage itself
+	use("wbthomason/packer.nvim")
 
-    -- General useful plugins
-    use 'tpope/vim-surround'
-	use 'tpope/vim-commentary'
-	use 'tpope/vim-repeat'
-	use 'tpope/vim-fugitive'
+	-- General useful plugins
+	use("tpope/vim-surround")
+	use("tpope/vim-commentary")
+	use("tpope/vim-repeat")
+	use("tpope/vim-fugitive")
+
+	use("nvim-lua/plenary.nvim")
 
 	-- NerdTree stuff
-	use { 'scrooloose/nerdtree', requires = {'Xuyuanp/nerdtree-git-plugin'} }
+	use({ "scrooloose/nerdtree", requires = { "Xuyuanp/nerdtree-git-plugin" } })
 
 	-- Colorscheme
-    -- use { "catppuccin/nvim", as = "catppuccin" }
-	use 'EdenEast/nightfox.nvim'
-    use 'itchyny/lightline.vim'
+	-- use { "catppuccin/nvim", as = "catppuccin" }
+	use("EdenEast/nightfox.nvim")
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 
-    -- Python
-	use 'jeetsukumaran/vim-pythonsense'
-	use 'Vimjas/vim-python-pep8-indent'
-    use { 'psf/black', branch = 'stable' }
-	use 'fisadev/vim-isort'
+	-- Python
+	use("jeetsukumaran/vim-pythonsense")
+	use("Vimjas/vim-python-pep8-indent")
+	use({ "psf/black", branch = "stable" })
+	use("fisadev/vim-isort")
 
-    -- Fuzzy finder
-    use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
-    use 'junegunn/fzf.vim'
+	-- Lua
+	use("wesleimp/stylua.nvim")
 
-    -- LSP
-	use 'neovim/nvim-lspconfig'
-	use 'hrsh7th/cmp-nvim-lsp'
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/nvim-cmp'
-	use 'onsails/lspkind-nvim'
+	-- Fuzzy finder
+	use({
+		"junegunn/fzf",
+		run = function()
+			vim.fn["fzf#install"]()
+		end,
+	})
+	use("junegunn/fzf.vim")
 
-    -- For luasnip users.
-	use 'L3MON4D3/LuaSnip'
-	use 'saadparwaiz1/cmp_luasnip'
+	-- LSP
+	use("neovim/nvim-lspconfig")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/nvim-cmp")
+	use("onsails/lspkind-nvim")
+
+	-- For luasnip users.
+	use("L3MON4D3/LuaSnip")
+	use("saadparwaiz1/cmp_luasnip")
 end)

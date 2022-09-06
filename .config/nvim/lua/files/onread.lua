@@ -1,2 +1,5 @@
-vim.cmd([[ autocmd BufNewFile,BufRead *.py set syntax=python ]])
-vim.cmd([[ autocmd BufNewFile,BufRead *.ptest set syntax=javascript ]])
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { pattern = { "*.py" }, command = [[set syntax=python]] })
+vim.api.nvim_create_autocmd(
+	{ "BufNewFile", "BufRead" },
+	{ pattern = { "*.ptest" }, command = [[set syntax=javascript]] }
+)

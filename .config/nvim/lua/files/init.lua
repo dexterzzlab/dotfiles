@@ -1,4 +1,5 @@
 require('files.comments')
+require('files.lua')
 require('files.onread')
 require('files.onsave')
 require('files.python')
