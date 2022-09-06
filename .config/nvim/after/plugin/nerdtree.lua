@@ -3,6 +3,8 @@ vim.cmd([[ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_se
 vim.cmd([[ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif ]])
 vim.cmd([[ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif ]])
 
+vim.g.NERDTreeShowHidden = 1
+
 vim.g.NERDTreeGitStatusIndicatorMapCustom = {
     Modified = "✹",
     Staged = "✚",

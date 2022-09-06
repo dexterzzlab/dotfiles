@@ -26,8 +26,8 @@ return require('packer').startup(function(use)
 	use 'fisadev/vim-isort'
 
     -- Fuzzy finder
-    --	use { 'junegunn/fzf', run = function() vim.fn['fzf#install'] end }
-    --	use 'junegunn/fzf.vim'
+    use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
+    use 'junegunn/fzf.vim'
 
     -- LSP
 	use 'neovim/nvim-lspconfig'
