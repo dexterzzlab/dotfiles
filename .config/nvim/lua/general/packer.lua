@@ -11,8 +11,10 @@ return require("packer").startup(function(use)
 	use("tpope/vim-repeat")
 	use("tpope/vim-fugitive")
 
+	-- needed for stylua, telescope
 	use("nvim-lua/plenary.nvim")
 
+	-- Find lua alternative?
 	-- NerdTree stuff
 	use({ "scrooloose/nerdtree", requires = { "Xuyuanp/nerdtree-git-plugin" } })
 
