@@ -14,6 +14,9 @@ return require("packer").startup(function(use)
 	-- needed for stylua, telescope
 	use("nvim-lua/plenary.nvim")
 
+	-- run = ":TSUpdate",
+	use({ "nvim-treesitter/nvim-treesitter" })
+
 	-- Find lua alternative?
 	-- NerdTree stuff
 	use({ "scrooloose/nerdtree", requires = { "Xuyuanp/nerdtree-git-plugin" } })
