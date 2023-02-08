@@ -22,8 +22,8 @@ return require("packer").startup(function(use)
 	use({ "scrooloose/nerdtree", requires = { "Xuyuanp/nerdtree-git-plugin" } })
 
 	-- Colorscheme
-	-- use { "catppuccin/nvim", as = "catppuccin" }
-	use("EdenEast/nightfox.nvim")
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	-- use({ "EdenEast/nightfox.nvim" })
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -32,7 +32,7 @@ return require("packer").startup(function(use)
 	-- Python
 	use("jeetsukumaran/vim-pythonsense")
 	use("Vimjas/vim-python-pep8-indent")
-	use({ "psf/black", branch = "stable" })
+	use({ "psf/black", tag = "20.8b1" })
 	use("fisadev/vim-isort")
 
 	-- Lua
