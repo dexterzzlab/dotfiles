@@ -3,8 +3,8 @@ vim.api.nvim_set_keymap("n", "<Space>d", ":lua vim.lsp.buf.definition()<CR>", { 
 vim.api.nvim_set_keymap("n", "<Space>c", ":lua vim.lsp.buf.rename()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Space>r", ":lua vim.lsp.buf.references()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Space>a", ":lua vim.lsp.buf.code_action()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Space>n", ":lua vim.lsp.diagnostic.goto_next()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Space>N", ":lua vim.lsp.diagnostic.goto_prev()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Space>n", ":lua vim.diagnostic.goto_next()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Space>N", ":lua vim.diagnostic.goto_prev()<CR>", { noremap = true })
 
 -- Normal mode remaps
 vim.api.nvim_set_keymap("n", "<Space>;", ":vsplit | terminal<CR>", { noremap = true })

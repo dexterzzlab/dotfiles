@@ -14,6 +14,12 @@ return require("packer").startup(function(use)
 	-- needed for stylua, telescope
 	use("nvim-lua/plenary.nvim")
 
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.1",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
+
 	-- run = ":TSUpdate",
 	use({ "nvim-treesitter/nvim-treesitter" })
 

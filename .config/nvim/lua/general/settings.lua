@@ -17,3 +17,4 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.background = "dark"
 vim.opt.colorcolumn = "120"
+vim.opt.mouse = nil
