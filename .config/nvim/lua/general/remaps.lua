@@ -28,3 +28,14 @@ vim.api.nvim_set_keymap("t", "<ESC>", [[<C-\><C-n>]], { noremap = true })
 
 -- Restart LSP
 vim.api.nvim_set_keymap("n", "<Space>R", ":LspRestart<CR>", { noremap = true })
+
+-- Neotest remaps
+vim.api.nvim_set_keymap("n", "<Space>tn", ":TestNearest<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Space>tf", ":TestFile<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Space>tc", ":TestClass<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Space>ts", ":TestSuite<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Space>tl", ":TestLast<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Space>tv", ":TestVisit<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<Space>tt", ":lua require('neotest').run.run()<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<Space>T", ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<Space>ts", ":lua require'neotest'.summary.toggle()<CR>", { noremap = true })

@@ -144,11 +144,6 @@ _G.packer_plugins = {
     path = "/Users/dextertan/.local/share/nvim/site/pack/packer/start/nerdtree-git-plugin",
     url = "https://github.com/Xuyuanp/nerdtree-git-plugin"
   },
-  ["nightfox.nvim"] = {
-    loaded = true,
-    path = "/Users/dextertan/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/dextertan/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -184,6 +179,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dextertan/.local/share/nvim/site/pack/packer/start/stylua.nvim",
     url = "https://github.com/wesleimp/stylua.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/Users/dextertan/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["vim-commentary"] = {
     loaded = true,

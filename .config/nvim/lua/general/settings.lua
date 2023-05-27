@@ -18,3 +18,6 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.background = "dark"
 vim.opt.colorcolumn = "120"
 vim.opt.mouse = nil
+
+-- Hide deprecation notice for ultest
+vim.g.ultest_deprecation_notice = 0

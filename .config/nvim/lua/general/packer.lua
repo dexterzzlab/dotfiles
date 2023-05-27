@@ -35,6 +35,20 @@ return require("packer").startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
+	-- Testing
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+		},
+	})
+	-- use("nvim-neotest/neotest-python")
+	-- Test out ultest
+	-- use({ "vim-test/vim-test" })
+	use({ "rcarriga/vim-ultest", requires = { "vim-test/vim-test" }, run = ":UpdateRemotePlugins" })
+
 	-- Python
 	use("jeetsukumaran/vim-pythonsense")
 	use("Vimjas/vim-python-pep8-indent")
